@@ -6,8 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Start Docker Compose
+          name: Build netty tcnative for various platforms
           command: |
             set -x
             ./build.sh
+      - run: mkdir -p $CIRCLE_ARTIFACTS/fedora && cp -R fedora/binaries/gen $CIRCLE_ARTIFACTS/fedora
+      - run: mkdir -p $CIRCLE_ARTIFACTS/alpine && cp -R alpine/binaries/gen $CIRCLE_ARTIFACTS/alpine
+      - run: mkdir -p $CIRCLE_ARTIFACTS/non-fedora && cp -R non-fedora/binaries/gen $CIRCLE_ARTIFACTS/non-fedora
 

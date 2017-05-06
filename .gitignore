@@ -1,0 +1,6 @@
+alpine/binaries
+fedora/binaries
+non-fedora/binaries
+alpine/compile.sh
+fedora/compile.sh
+non-fedora/compile.sh

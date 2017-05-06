@@ -6,8 +6,7 @@ mkdir -p /output/gen
 echo "" > "/output/gen/$(openssl version)"
 cat /usr/include/openssl/opensslv.h | grep OPENSSL_VERSION_TEXT > "/output/gen/openssl-header-version.txt"
 echo $NETTY_TCNATIVE_TAG > "/output/gen/$NETTY_TCNATIVE_TAG"
-mkdir -p "/output/gen/openssl-dynamic-$NETTY_TCNATIVE_TAG"
-mkdir -p "/output/gen/openssl-static-$NETTY_TCNATIVE_TAG"
+mkdir -p "/output/gen/openssl-$NETTY_TCNATIVE_TAG"
 #mkdir -p /output/boringssl-static
 #mkdir -p /output/libressl-static
 
@@ -32,7 +31,7 @@ EOL
 
 mvn -s docker_settings.xml clean package
 
-mv openssl-static/target/*.jar /output/gen/openssl-static-$NETTY_TCNATIVE_TAG
-mv openssl-dynamic/target/*.jar /output/gen/openssl-dynamic-$NETTY_TCNATIVE_TAG
+mv openssl-static/target/*x86*.jar "/output/gen/openssl-$NETTY_TCNATIVE_TAG"
+mv openssl-dynamic/target/*x86*.jar "/output/gen/openssl-$NETTY_TCNATIVE_TAG"
 #mv boringssl-static/target/*.jar /output/boringssl-static
 #mv libressl-static/target/*.jar /output/libressl-static
