@@ -4,7 +4,7 @@ set -e
 ############################################################################################
 OPENSSL_VERSION=1.0.2k
 OPENSSL_SHA256=6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0
-TC_NATIVE_TAGS=(netty-tcnative-1.1.33.Fork17 netty-tcnative-parent-2.0.0.Final netty-tcnative-parent-1.1.33.Fork25)
+TC_NATIVE_TAGS=(netty-tcnative-1.1.33.Fork17 netty-tcnative-parent-2.0.0.Final netty-tcnative-parent-1.1.33.Fork25 netty-tcnative-parent-1.1.33.Fork23)
 #for every os in OS list there must be subfolder with this name and Dockerfile in it
 OS=(alpine non-fedora fedora)
 MAVEN_VERSION=3.5.0
