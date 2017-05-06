@@ -10,7 +10,14 @@ jobs:
           command: |
             set -x
             ./build.sh
-      - run: mkdir -p $CIRCLE_ARTIFACTS/fedora && cp -R fedora/binaries/gen $CIRCLE_ARTIFACTS/fedora
-      - run: mkdir -p $CIRCLE_ARTIFACTS/alpine && cp -R alpine/binaries/gen $CIRCLE_ARTIFACTS/alpine
-      - run: mkdir -p $CIRCLE_ARTIFACTS/non-fedora && cp -R non-fedora/binaries/gen $CIRCLE_ARTIFACTS/non-fedora
+      - store_artifacts:
+          path: fedora/binaries/gen
+          destination: fedora
+      - store_artifacts:
+          path: non-fedora/binaries/gen
+          destination: non-fedora
+      - store_artifacts:
+          path: alpine/binaries/gen
+          destination: alpine
+
 
