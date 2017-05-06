@@ -7,7 +7,7 @@ RUN apk add --update \
 
 #ARG NETTY_TCNATIVE_TAG=netty-tcnative-parent-2.0.0.Final
 #ENV NETTY_TCNATIVE_TAG $NETTY_TCNATIVE_TAG
-ENV MAVEN_VERSION 3.5.0
+ARG MAVEN_VERSION
 ENV MAVEN_HOME /usr/share/maven
 
 RUN cd /usr/share ; \

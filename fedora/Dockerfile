@@ -9,7 +9,7 @@ RUN dnf -y update
 #ENV NETTY_TCNATIVE_TAG $NETTY_TCNATIVE_TAG
 #ENV CC ”gcc -fPIC”
 #ENV CXX ”g++ -fPIC”
-ENV MAVEN_VERSION 3.5.0
+#ENV MAVEN_VERSION 3.5.0
 ENV MAVEN_HOME /usr/share/maven
 
 RUN cd /usr/share ; \

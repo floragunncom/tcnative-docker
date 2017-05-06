@@ -7,9 +7,7 @@ jobs:
       - checkout
       - run:
           name: Build netty tcnative for various platforms
-          command: |
-            set -x
-            ./build.sh
+          command: ./build.sh
       - store_artifacts:
           path: fedora/binaries/gen
           destination: fedora
@@ -19,5 +17,3 @@ jobs:
       - store_artifacts:
           path: alpine/binaries/gen
           destination: alpine
-
-
