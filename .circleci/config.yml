@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    working_directory: ~/tcnative
+    steps:
+      - checkout
+      - run:
+          name: Start Docker Compose
+          command: |
+            set -x
+            ./build.sh
+
