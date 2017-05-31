@@ -2,19 +2,19 @@
 set -e
 ############################################################################################
 ############################################################################################
-OPENSSL_VERSION=1.0.2k
-OPENSSL_SHA256=6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0
-TC_NATIVE_TAGS=(netty-tcnative-1.1.33.Fork17 netty-tcnative-parent-2.0.0.Final netty-tcnative-parent-1.1.33.Fork25 netty-tcnative-parent-1.1.33.Fork23)
-#for every os in OS list there must be subfolder with this name and Dockerfile in it
+OPENSSL_VERSION=1.0.2l
+OPENSSL_SHA256=ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c
+TC_NATIVE_TAGS=(netty-tcnative-1.1.33.Fork17 netty-tcnative-parent-2.0.0.Final netty-tcnative-parent-2.0.1.Final netty-tcnative-parent-1.1.33.Fork25 netty-tcnative-parent-1.1.33.Fork23)
+#for every os in OS list there must be subfolder with this name and a Dockerfile in it
 OS=(alpine non-fedora fedora)
 MAVEN_VERSION=3.5.0
 ############################################################################################
 ############################################################################################
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BUILDLOG="$DIR/build.log"
-DATE=`date +%Y-%m-%d:%H:%M:%S`
-echo "Start $DATE"
-rm -rf "$BUILDLOG"
+#DATE=`date +%Y-%m-%d:%H:%M:%S`
+#echo "Start $DATE"
+rm -f "$BUILDLOG"
 cd "$DIR"
 for i in "${OS[@]}"
 do
@@ -27,13 +27,16 @@ do
    for nv in "${TC_NATIVE_TAGS[@]}"
    do
      : 
-     echo "### RUN $i/$nv ###"
+     echo "### RUN $i/$nv for Open SSL $OPENSSL_VERSION ###"
      docker run -e "NETTY_TCNATIVE_TAG=$nv" -e "OPENSSL_VERSION=$OPENSSL_VERSION" -e "OPENSSL_SHA256=$OPENSSL_SHA256" --rm -v "$DIR/$i/binaries:/output" "$i:latest" >> "$BUILDLOG" 2>&1
      VER=${nv##*-}
-     echo "Upload files for $VER and $DATE"
-     curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/$i/$nv-$DATE/nativejar-$i-$VER-$DATE/"
-     curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-openssl-static-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/$i/$nv-$DATE/nativejar-$i-$VER-$DATE/"
-     curl -X POST -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/$i/$nv-$DATE/publish"
+     echo "Upload files for $i/$VER"
+     #PUT /content/:subject/:repo/:package/:version/:file_path[?publish=0/1][?override=0/1][?explode=0/1]
+     #echo curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-1.0.2-dynamic-$VER-$i-linux-x86_64.jar?override=1"
+     curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-1.0.2-dynamic-$VER-$i-linux-x86_64.jar?override=1"
+     curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-openssl-static-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-static-$VER-$i-linux-x86_64.jar?override=1"
+     #POST /content/:subject/:repo/:package/:version/publish
+     curl -X POST -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/publish"
    done 
 done
 echo "All done"
