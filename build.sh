@@ -31,7 +31,7 @@ do
    do
      : 
      echo "### RUN $i/$nv for Open SSL $LIBRESSL_VERSION ###"
-     docker run -e "NETTY_TCNATIVE_TAG=$nv" -e "LIBRESSL_VERSION=$LIBRESSL_VERSION" -e "LIBRESSL_SHA256=$LIBRESSL_SHA256" --rm -v "$DIR/$i/binaries:/output" "$i:latest" >> "$BUILDLOG" 2>&1
+     docker run -e "NETTY_TCNATIVE_TAG=$nv" -e "LIBRESSL_VERSION=$LIBRESSL_VERSION" -e "LIBRESSL_SHA256=$LIBRESSL_SHA256" --rm -v "$DIR/$i/binaries:/output" "$i:latest"
      VER=${nv##*-}
      echo "Upload files for $i/$VER"
      #PUT /content/:subject/:repo/:package/:version/:file_path[?publish=0/1][?override=0/1][?explode=0/1]
