@@ -20,6 +20,8 @@ sed -i -e 's#^\s*<module>openssl-static</module>\s*$#<!--removed <module>openssl
 sed -i -e 's#^\s*<module>openssl-dynamic</module>\s*$#<!--removed <module>openssl-dynamic</module>-->#g' pom.xml
 sed -i -e 's#^\s*<libresslVersion>.*</libresslVersion>\s*$#<libresslVersion>'"$LIBRESSL_VERSION"'</libresslVersion>#g' pom.xml
 sed -i -e 's#^\s*<libresslSha256>.*</libresslSha256>\s*$#<libresslSha256>'"$LIBRESSL_SHA256"'</libresslSha256>#g' pom.xml
+sed -i -e 's#^\s*<aprVersion>.*</aprVersion>\s*$#<aprVersion>1.6.2</aprVersion>#g' pom.xml
+sed -i -e 's#^\s*<aprMd5>.*</aprMd5>\s*$#<aprMd5>98492e965963f852ab29f9e61b2ad700</aprMd5>#g' pom.xml
 
 cat pom.xml
 
