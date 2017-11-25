@@ -2,8 +2,8 @@
 set -e
 ############################################################################################
 ############################################################################################
-OPENSSL_VERSION=1.0.2l
-OPENSSL_SHA256=ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c
+OPENSSL_VERSION=1.0.2m
+OPENSSL_SHA256=8c6ff15ec6b319b50788f42c7abc2890c08ba5a1cdcd3810eb9092deada37b0f
 #TC_NATIVE_TAGS=(netty-tcnative-1.1.33.Fork17 netty-tcnative-parent-2.0.0.Final netty-tcnative-parent-2.0.1.Final netty-tcnative-parent-1.1.33.Fork25 netty-tcnative-parent-1.1.33.Fork23)
 #TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.2.Final netty-tcnative-parent-2.0.3.Final)
 TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.7.Final)
