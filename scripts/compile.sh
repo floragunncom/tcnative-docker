@@ -36,7 +36,12 @@ EOL
 
 mvn -s docker_settings.xml clean package
 
+#'/output/gen/netty-tcnative/libressl-static/target/netty-tcnative-libressl-static-2.0.5.Final-linux-x86_64.jar' -> '/output/gen/libressl-netty-tcnative-parent-2.0.5.Final/netty-tcnative-libressl-static-2.0.5.Final-linux-x86_64.jar'
+#'/output/gen/netty-tcnative/libressl-static/target/netty-tcnative-libressl-static-2.0.5.Final-sources.jar' -> '/output/gen/libressl-netty-tcnative-parent-2.0.5.Final/netty-tcnative-libressl-static-2.0.5.Final-sources.jar'
+#'/output/gen/netty-tcnative/libressl-static/target/netty-tcnative-libressl-static-2.0.5.Final.jar' -> '/output/gen/libressl-netty-tcnative-parent-2.0.5.Final/netty-tcnative-libressl-static-2.0.5.Final.jar'
+#Upload files for non-fedora/2.0.5.Final
+
 #cp -av /output/gen/netty-tcnative/openssl-dynamic/target/*x86*.jar "/output/gen/openssl-$NETTY_TCNATIVE_TAG/"
-cp -av /output/gen/netty-tcnative/libressl-static/target/*.jar "/output/gen/libressl-$NETTY_TCNATIVE_TAG/"
+cp -av /output/gen/netty-tcnative/libressl-static/target/*x86*.jar "/output/gen/libressl-$NETTY_TCNATIVE_TAG/"
 #mv boringssl-static/target/*.jar /output/boringssl-static
 #mv libressl-static/target/*.jar /output/libressl-static
