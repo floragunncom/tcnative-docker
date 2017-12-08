@@ -19,6 +19,8 @@ sed -i -e 's#^\s*<module>boringssl-static</module>\s*$#<!-- removed <module>bori
 sed -i -e 's#^\s*<module>libressl-static</module>\s*$#<!--removed <module>libressl-static</module>-->#g' pom.xml
 sed -i -e 's#^\s*<opensslVersion>.*</opensslVersion>\s*$#<opensslVersion>'"$OPENSSL_VERSION"'</opensslVersion>#g' pom.xml
 sed -i -e 's#^\s*<opensslSha256>.*</opensslSha256>\s*$#<opensslSha256>'"$OPENSSL_SHA256"'</opensslSha256>#g' pom.xml
+sed -i -e 's#www\.us\.apache\.org#archive\.apache\.org#g' pom.xml
+
 
 cat pom.xml
 
