@@ -12,7 +12,7 @@ mkdir -p "/output/gen/openssl-$NETTY_TCNATIVE_TAG"
 
 git clone https://github.com/netty/netty-tcnative || true
 cd netty-tcnative
-git checkout tags/$NETTY_TCNATIVE_TAG
+git checkout $NETTY_TCNATIVE_TAG
 #sed -i -e 's#^\s*<module>openssl-static</module>\s*$#<!-- removed <module>openssl-static</module>-->#g' pom.xml
 #sed -i -e 's#^\s*<module>openssl-dynamic</module>\s*$#<!-- removed <module>openssl-dynamic</module>-->#g' pom.xml
 sed -i -e 's#^\s*<module>boringssl-static</module>\s*$#<!-- removed <module>boringssl-static</module>-->#g' pom.xml
