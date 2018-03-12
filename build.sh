@@ -36,10 +36,11 @@ do
      echo "Upload files for $i/$VER"
      #PUT /content/:subject/:repo/:package/:version/:file_path[?publish=0/1][?override=0/1][?explode=0/1]
      #echo curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-1.0.2-dynamic-$VER-$i-linux-x86_64.jar?override=1"
-     curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-1.0.2-dynamic-$VER-$i-linux-x86_64.jar?override=1"
-     curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-openssl-static-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-static-$VER-$i-linux-x86_64.jar?override=1"
+     #/output/gen/netty-tcnative/openssl-static/target/netty-tcnative-openssl-static-2.0.8.Final-SNAPSHOT-linux-x86_64.jar
+     #curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-1.0.2-dynamic-$VER-$i-linux-x86_64.jar?override=1"
+     #curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-openssl-static-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-static-$VER-$i-linux-x86_64.jar?override=1"
      #POST /content/:subject/:repo/:package/:version/publish
-     curl -X POST -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/publish"
+     #curl -X POST -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/publish"
    done 
 done
 echo "All done"

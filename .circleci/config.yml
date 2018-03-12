@@ -11,9 +11,9 @@ jobs:
       #- store_artifacts:
       #    path: fedora/binaries/gen
       #    destination: fedora
-      #- store_artifacts:
-      #    path: non-fedora/binaries/gen
-      #    destination: non-fedora
+      - store_artifacts:
+          path: /output/gen/netty-tcnative/openssl-static/target
+          destination: non-fedora
       #- store_artifacts:
       #    path: alpine/binaries/gen
       #    destination: alpine
