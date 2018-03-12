@@ -12,7 +12,7 @@ jobs:
       #    path: fedora/binaries/gen
       #    destination: fedora
       - store_artifacts:
-          path: /output/gen/netty-tcnative/openssl-static/target
+          path: /output/gen/netty-tcnative/openssl-static/target/netty-tcnative-openssl-static-2.0.8.Final-SNAPSHOT-linux-x86_64.jar
           destination: non-fedora
       #- store_artifacts:
       #    path: alpine/binaries/gen
