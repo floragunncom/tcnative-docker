@@ -2,11 +2,11 @@
 set -e
 ############################################################################################
 ############################################################################################
-OPENSSL_VERSION=1.0.2n
-OPENSSL_SHA256=370babb75f278c39e0c50e8c4e7493bc0f18db6867478341a832a982fd15a8fe
+OPENSSL_VERSION=1.0.2o
+OPENSSL_SHA256=ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d
 #TC_NATIVE_TAGS=(netty-tcnative-1.1.33.Fork17 netty-tcnative-parent-2.0.0.Final netty-tcnative-parent-2.0.1.Final netty-tcnative-parent-1.1.33.Fork25 netty-tcnative-parent-1.1.33.Fork23)
 #TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.2.Final netty-tcnative-parent-2.0.3.Final)
-TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.5.Final netty-tcnative-parent-2.0.6.Final netty-tcnative-parent-2.0.7.Final)
+TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.7.Final netty-tcnative-parent-2.0.8.Final)
 
 #for every os in OS list there must be subfolder with this name and a Dockerfile in it
 OS=(alpine non-fedora fedora)
