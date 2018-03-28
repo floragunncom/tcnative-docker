@@ -2,11 +2,11 @@
 set -e
 ############################################################################################
 ############################################################################################
-LIBRESSL_VERSION=2.6.3
-LIBRESSL_SHA256=aead6598263171b96970da0d881e616d0813b69b35ebdc5991f87ff2ea7f5c98
+LIBRESSL_VERSION=2.6.4
+LIBRESSL_SHA256=638a20c2f9e99ee283a841cd787ab4d846d1880e180c4e96904fc327d419d11f
 #TC_NATIVE_TAGS=(netty-tcnative-1.1.33.Fork17 netty-tcnative-parent-2.0.0.Final netty-tcnative-parent-2.0.1.Final netty-tcnative-parent-1.1.33.Fork25 netty-tcnative-parent-1.1.33.Fork23)
 #TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.2.Final netty-tcnative-parent-2.0.3.Final)
-TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.5.Final netty-tcnative-parent-2.0.6.Final netty-tcnative-parent-2.0.7.Final)
+TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.7.Final netty-tcnative-parent-2.0.8.Final)
 
 #for every os in OS list there must be subfolder with this name and a Dockerfile in it
 OS=(non-fedora fedora alpine)
@@ -41,7 +41,7 @@ do
      #POST /content/:subject/:repo/:package/:version/publish
 
      #do not publish yet
-     #curl -X POST -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/publish"
+     curl -X POST -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/publish"
    done 
 done
 echo "All done"
