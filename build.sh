@@ -9,7 +9,7 @@ OPENSSL_SHA256=5835626cde9e99656585fc7aaa2302a73a7e1340bf8c14fd635a62c66802a517
 TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.8.Final)
 
 #for every os in OS list there must be subfolder with this name and a Dockerfile in it
-OS=(alpine non-fedora fedora)
+OS=(non-fedora fedora alpine)
 MAVEN_VERSION=3.5.0
 ############################################################################################
 ############################################################################################
