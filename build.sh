@@ -6,7 +6,7 @@ OPENSSL_VERSION=1.1.1-pre9
 OPENSSL_SHA256=95ebdfbb05e8451fb01a186ccaa4a7da0eff9a48999ede9fe1a7d90db75ccb4c
 #TC_NATIVE_TAGS=(netty-tcnative-1.1.33.Fork17 netty-tcnative-parent-2.0.0.Final netty-tcnative-parent-2.0.1.Final netty-tcnative-parent-1.1.33.Fork25 netty-tcnative-parent-1.1.33.Fork23)
 #TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.2.Final netty-tcnative-parent-2.0.3.Final)
-TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.10.Final)
+TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.12.Final netty-tcnative-parent-2.0.15.Final)
 
 #for every os in OS list there must be subfolder with this name and a Dockerfile in it
 OS=(non-fedora fedora alpine)
