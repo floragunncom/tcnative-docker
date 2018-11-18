@@ -33,7 +33,7 @@ cat > docker_settings.xml <<EOL
 </settings>
 EOL
 
-mvn -s docker_settings.xml clean package
+mvn -s docker_settings.xml clean package -DskipTests
 
 cp -av /output/gen/netty-tcnative/openssl-dynamic/target/*x86*.jar "/output/gen/openssl-$NETTY_TCNATIVE_TAG/"
 cp -av /output/gen/netty-tcnative/openssl-static/target/*x86*.jar "/output/gen/openssl-$NETTY_TCNATIVE_TAG/"
