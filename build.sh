@@ -10,6 +10,8 @@ OS=(non-fedora fedora) #alpine?
 MAVEN_VERSION=3.5.0
 
 for OPENSSL_VERSION in "${OPENSSL_VERSIONS[@]}"
+do
+    :
 	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 	BUILDLOG="$DIR/build.log"
 	rm -f "$BUILDLOG"
