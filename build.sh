@@ -1,5 +1,6 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+mkdir -p "$DIR/logs"
 set -e
 ############################################################################################
 ######################  MATRIX  #################################
@@ -25,8 +26,8 @@ do
 	   for nv in "${TC_NATIVE_TAGS[@]}"
 	   do
 		 : 
-		 BUILDLOG="$DIR/logs/build_$i_$nv_$OPENSSL_VERSION.log"
-		 mkdir -p "$BUILDLOG"
+		 BUILDLOG="$DIR/logs/run-$i-$nv-$OPENSSL_VERSION.log"
+		 
 		 echo "### RUN $i/$nv for Open SSL $OPENSSL_VERSION ###"
 		 docker run -e "NETTY_TCNATIVE_TAG=$nv" -e "OPENSSL_VERSION=$OPENSSL_VERSION" -e "OPENSSL_SHA256=$OPENSSL_SHA256" --rm -v "$DIR/$i/binaries:/output" "$i:latest" > "$BUILDLOG" 2>&1
 		 VER=${nv##*-}
