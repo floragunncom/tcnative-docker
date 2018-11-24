@@ -8,9 +8,9 @@ jobs:
       - run:
           name: Build netty tcnative for various platforms
           command: ./build.sh
-      #- store_artifacts:
-      #    path: fedora/binaries/gen
-      #    destination: fedora
+      - store_artifacts:
+          path: ~/tcnative/logs
+          destination: logs
       #- store_artifacts:
       #    path: non-fedora/binaries/gen
       #    destination: non-fedora

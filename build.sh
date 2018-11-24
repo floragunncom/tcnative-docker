@@ -1,4 +1,5 @@
 #!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 set -e
 ############################################################################################
 ######################  MATRIX  #################################
@@ -12,23 +13,20 @@ MAVEN_VERSION=3.5.0
 for OPENSSL_VERSION in "${OPENSSL_VERSIONS[@]}"
 do
     :
-	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-	BUILDLOG="$DIR/build.log"
-	rm -f "$BUILDLOG"
-	cd "$DIR"
 	for i in "${OS[@]}"
 	do
 	   : 
+	   echo "### BUILD $i with $OPENSSL_VERSION in $DIR ###"
 	   cd "$DIR/$i"
 	   cp -a "$DIR/scripts/compile.sh" .
-	   echo "### BUILD $i ###"
-	   docker build --build-arg "MAVEN_VERSION=$MAVEN_VERSION" -t "$i:latest" . >> "$BUILDLOG" 2>&1
+	   docker build --build-arg "MAVEN_VERSION=$MAVEN_VERSION" -t "$i:latest" . > /dev/null 2>&1
 	   mkdir -p "$DIR/$i/binaries"
 	   for nv in "${TC_NATIVE_TAGS[@]}"
 	   do
 		 : 
+		 BUILDLOG="$DIR/logs/build_$i_$nv_$OPENSSL_VERSION.log"
 		 echo "### RUN $i/$nv for Open SSL $OPENSSL_VERSION ###"
-		 docker run -e "NETTY_TCNATIVE_TAG=$nv" -e "OPENSSL_VERSION=$OPENSSL_VERSION" -e "OPENSSL_SHA256=$OPENSSL_SHA256" --rm -v "$DIR/$i/binaries:/output" "$i:latest" #>> "$BUILDLOG" 2>&1
+		 docker run -e "NETTY_TCNATIVE_TAG=$nv" -e "OPENSSL_VERSION=$OPENSSL_VERSION" -e "OPENSSL_SHA256=$OPENSSL_SHA256" --rm -v "$DIR/$i/binaries:/output" "$i:latest" > "$BUILDLOG" 2>&1
 		 VER=${nv##*-}
 		 echo "Upload files for $i/$VER"
 		 curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-1.0.2-dynamic-$VER-$i-linux-x86_64.jar?override=1"
