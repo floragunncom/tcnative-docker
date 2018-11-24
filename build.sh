@@ -17,8 +17,9 @@ do
 	#ls -la "$DIR"
 	cd "$DIR/$i"
 	cp -a "$DIR/scripts/compile.sh" .
-	docker build --build-arg "MAVEN_VERSION=$MAVEN_VERSION" -t "$i:latest" . > /dev/null 2>&1
-	echo "Docker build: $?"
+	docker build --build-arg "MAVEN_VERSION=$MAVEN_VERSION" -t "$i:latest" . > "$DIR/logs/docker-build-$i.log" 2>&1
+	RET="$?"
+	echo "Docker build: $RET"
 	mkdir -p "$DIR/$i/binaries"
 
 	for OPENSSL_VERSION in "${OPENSSL_VERSIONS[@]}"
