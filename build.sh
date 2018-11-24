@@ -27,7 +27,7 @@ do
 		do
 			BUILDLOG="$DIR/logs/run-$i-$nv-$OPENSSL_VERSION.log"
 			echo "  --> RUN $i/$nv for Open SSL $OPENSSL_VERSION"
-			rm -rf "$DIR/$i/binaries/gen"
+			sudo rm -rf "$DIR/$i/binaries/gen"
 			docker run -e "NETTY_TCNATIVE_TAG=$nv" -e "OPENSSL_VERSION=$OPENSSL_VERSION" -e "OPENSSL_SHA256=$OPENSSL_SHA256" --rm -v "$DIR/$i/binaries:/output" "$i:latest" > "$BUILDLOG" 2>&1
 			echo "Docker run: $?"
 			VER=${nv##*-}
