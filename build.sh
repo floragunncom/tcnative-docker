@@ -5,7 +5,7 @@ mkdir -p "$DIR/logs"
 ############################################################################################
 ######################  MATRIX  #################################
 OPENSSL_VERSIONS=(1.0.2q 1.1.0j 1.1.1a)
-TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.7.Final netty-tcnative-parent-2.0.15.Final)
+TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.10.Final netty-tcnative-parent-2.0.16.Final netty-tcnative-parent-2.0.17.Final netty-tcnative-parent-2.0.18.Final netty-tcnative-parent-2.0.19.Final netty-tcnative-parent-2.0.20.Final)
 OS=(non-fedora fedora) #alpine?
 ############################################################################################
 ############################################################################################
