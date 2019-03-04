@@ -4,9 +4,9 @@ mkdir -p "$DIR/logs"
 #set -e
 ############################################################################################
 ######################  MATRIX  #################################
-OPENSSL_VERSIONS=(1.0.2q 1.1.0j 1.1.1a)
-TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.10.Final netty-tcnative-parent-2.0.16.Final netty-tcnative-parent-2.0.17.Final netty-tcnative-parent-2.0.18.Final netty-tcnative-parent-2.0.19.Final netty-tcnative-parent-2.0.20.Final)
-OS=(non-fedora fedora) #alpine?
+OPENSSL_VERSIONS=(1.0.2r 1.1.0j 1.1.1b)
+TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.5.Final netty-tcnative-parent-2.0.7.Final netty-tcnative-parent-2.0.15.Final netty-tcnative-parent-2.0.20.Final)
+OS=(non-fedora fedora alpine)
 ############################################################################################
 ############################################################################################
 MAVEN_VERSION=3.5.0
