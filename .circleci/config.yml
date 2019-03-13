@@ -11,6 +11,12 @@ jobs:
       - store_artifacts:
           path: ~/tcnative/logs
           destination: logs
+      - store_artifacts:
+          path: ~/tcnative/dynamic-tcnative-binaries
+          destination: dynamic-tcnative-binaries
+      - store_artifacts:
+          path: ~/tcnative/static-tcnative-binaries
+          destination: static-tcnative-binaries
       #- store_artifacts:
       #    path: non-fedora/binaries/gen
       #    destination: non-fedora

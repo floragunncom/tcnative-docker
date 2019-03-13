@@ -1,6 +1,8 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 mkdir -p "$DIR/logs"
+mkdir -p "$DIR/dynamic-tcnative-binaries"
+mkdir -p "$DIR/static-tcnative-binaries"
 #set -e
 ############################################################################################
 ######################  MATRIX  #################################
@@ -34,13 +36,16 @@ do
 			VER=${nv##*-}
 			echo "    Upload files for $i/$VER"
 			#ls -la "$DIR/$i/binaries/gen/openssl-$nv"
-			curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-dynamic-$VER-$i-linux-x86_64.jar?override=1"
-			echo ""
-			curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-openssl-static-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-static-$VER-$i-linux-x86_64.jar?override=1"
-			echo ""
-			curl -X POST -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/publish"
-		    echo ""
-			echo ""
+			cp "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" "$DIR/dynamic-tcnative-binaries"
+            cp "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-openssl-static-$VER-linux-x86_64.jar" "$DIR/static-tcnative-binaries"
+
+			#curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-dynamic-$VER-$i-linux-x86_64.jar?override=1"
+			#echo ""
+			#curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-openssl-static-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-static-$VER-$i-linux-x86_64.jar?override=1"
+			#echo ""
+			#curl -X POST -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/publish"
+		    #echo ""
+			#echo ""
 			echo ""
 		done 
 	done
