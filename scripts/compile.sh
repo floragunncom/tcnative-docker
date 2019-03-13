@@ -3,8 +3,8 @@ set -e
 rm -rf /output/gen
 mkdir -p /output/gen
 cd /output/gen
-echo "" > "/output/gen/$(openssl version)"
-cat /usr/include/openssl/opensslv.h | grep OPENSSL_VERSION_TEXT > "/output/gen/openssl-header-version.txt"
+openssl version
+cat /usr/include/openssl/opensslv.h | grep OPENSSL_VERSION_TEXT
 echo "$NETTY_TCNATIVE_TAG" > "/output/gen/$NETTY_TCNATIVE_TAG"
 mkdir -p "/output/gen/openssl-$NETTY_TCNATIVE_TAG"
 #mkdir -p "/output/boringssl-$NETTY_TCNATIVE_TAG"
@@ -34,6 +34,9 @@ cat > docker_settings.xml <<EOL
 EOL
 
 mvn -s docker_settings.xml clean package -DskipTests
+
+openssl version
+cat /usr/include/openssl/opensslv.h | grep OPENSSL_VERSION_TEXT
 
 cp -av /output/gen/netty-tcnative/openssl-dynamic/target/*x86*.jar "/output/gen/openssl-$NETTY_TCNATIVE_TAG/"
 cp -av /output/gen/netty-tcnative/openssl-static/target/*x86*.jar "/output/gen/openssl-$NETTY_TCNATIVE_TAG/"
