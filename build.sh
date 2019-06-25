@@ -6,8 +6,10 @@ mkdir -p "$DIR/static-tcnative-binaries"
 #set -e
 ############################################################################################
 ######################  MATRIX  #################################
-OPENSSL_VERSIONS=(1.0.2s 1.1.0k 1.1.1c)
-TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.5.Final netty-tcnative-parent-2.0.7.Final netty-tcnative-parent-2.0.15.Final netty-tcnative-parent-2.0.20.Final netty-tcnative-parent-2.0.25.Final)
+OPENSSL_VERSIONS=(1.1.1c)
+#1.0.2s 1.1.0k
+#netty-tcnative-parent-2.0.5.Final netty-tcnative-parent-2.0.7.Final netty-tcnative-parent-2.0.15.Final 
+TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.20.Final netty-tcnative-parent-2.0.25.Final)
 OS=(non-fedora fedora alpine)
 ############################################################################################
 ############################################################################################
@@ -39,12 +41,12 @@ do
 			cp "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" "$DIR/dynamic-tcnative-binaries/netty-tcnative-openssl-$OPENSSL_VERSION-dynamic-$VER-$i-linux-x86_64.jar"
             cp "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-openssl-static-$VER-linux-x86_64.jar" "$DIR/static-tcnative-binaries/netty-tcnative-openssl-$OPENSSL_VERSION-static-$VER-$i-linux-x86_64.jar"
 
-			#curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-dynamic-$VER-$i-linux-x86_64.jar?override=1"
-			#echo ""
-			#curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-openssl-static-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-static-$VER-$i-linux-x86_64.jar?override=1"
-			#echo ""
-			#curl -X POST -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/publish"
-		    #echo ""
+			curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-dynamic-$VER-$i-linux-x86_64.jar?override=1"
+			echo ""
+			curl -T "$DIR/$i/binaries/gen/openssl-$nv/netty-tcnative-openssl-static-$VER-linux-x86_64.jar" -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/netty-tcnative-openssl-$OPENSSL_VERSION-static-$VER-$i-linux-x86_64.jar?override=1"
+			echo ""
+			curl -X POST -ufloragunncom:$BT_APIKEY "https://api.bintray.com/content/floragunncom/netty-tcnative/natives/$VER/publish"
+		    echo ""
 			#echo ""
 			echo ""
 		done 
