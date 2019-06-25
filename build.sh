@@ -6,8 +6,8 @@ mkdir -p "$DIR/static-tcnative-binaries"
 #set -e
 ############################################################################################
 ######################  MATRIX  #################################
-OPENSSL_VERSIONS=(1.0.2r 1.1.0j 1.1.1b)
-TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.5.Final netty-tcnative-parent-2.0.7.Final netty-tcnative-parent-2.0.15.Final netty-tcnative-parent-2.0.20.Final)
+OPENSSL_VERSIONS=(1.0.2s 1.1.0k 1.1.1c)
+TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.5.Final netty-tcnative-parent-2.0.7.Final netty-tcnative-parent-2.0.15.Final netty-tcnative-parent-2.0.20.Final netty-tcnative-parent-2.0.25.Final)
 OS=(non-fedora fedora alpine)
 ############################################################################################
 ############################################################################################
