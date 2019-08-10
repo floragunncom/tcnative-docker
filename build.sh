@@ -9,8 +9,10 @@ mkdir -p "$DIR/static-tcnative-binaries"
 OPENSSL_VERSIONS=(1.1.1c)
 #1.0.2s 1.1.0k
 #netty-tcnative-parent-2.0.5.Final netty-tcnative-parent-2.0.7.Final netty-tcnative-parent-2.0.15.Final 
-TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.20.Final netty-tcnative-parent-2.0.25.Final)
-OS=(non-fedora fedora alpine)
+#TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.20.Final netty-tcnative-parent-2.0.25.Final)
+TC_NATIVE_TAGS=(netty-tcnative-parent-2.0.25.Final)
+#OS=(non-fedora fedora alpine)
+OS=(fedora alpine)
 ############################################################################################
 ############################################################################################
 MAVEN_VERSION=3.5.0
